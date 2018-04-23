@@ -1,0 +1,24 @@
+/* Color definition
+-------------------- */
+
+$colors: (
+        'header':     #efefef,
+        'primary':    #a22012,
+        'secondary':  #feba01,
+        'white':      #ffffff,
+        'black':      #000000,
+        'background': #fff5d9,
+        'grey':       #333333
+);
+
+// Helper
+
+@function get-color($name) {
+
+  @if map-has-key($colors, $name){
+    @return map-get($colors, $name);
+  } @else {
+    @error 'Color #{$name} not found in $colors';
+  }
+
+}

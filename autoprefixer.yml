@@ -1,0 +1,4 @@
+browsers:
+  - "last 2 versions"
+  - "> 4%"
+  - "ie 11"

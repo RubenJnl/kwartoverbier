@@ -1,0 +1,59 @@
+{
+  "baseUrl": "deploy/static/js",
+  "name": "main",
+  "out": "deploy/static/js/main-build.js",
+  "insertRequire": [ "main" ],
+  // "optimize": "uglify2",
+  "preserveLicenseComments": true,
+  "paths": {
+
+    // base
+    "conditioner" : "base/conditioner/conditioner",
+      // monitors
+      "connection" : "base/conditioner/monitors/connection",
+      "element" : "base/conditioner/monitors/element",
+      "media" : "base/conditioner/monitors/media",
+      "pointer" : "base/conditioner/monitors/pointer",
+      "window" : "base/conditioner/monitors/window",
+      // utils
+      "contains" : "base/conditioner/utils/contains",
+      "extendClassOptions" : "base/conditioner/utils/extendClassOptions",
+      "matchesSelector" : "base/conditioner/utils/matchesSelector",
+      "mergeObjects" : "base/conditioner/utils/mergeObjects",
+      "Observer" : "base/conditioner/utils/Observer",
+      "Promise" : "base/conditioner/utils/Promise",
+
+    // ui components
+//    "main" : "main",
+    "menu" : "menu",
+    "Page" : "page",
+    "Images" : "images"
+
+  },
+  "exclude": [],
+  "include": [
+
+    // base
+    "conditioner",
+    // monitors
+    "connection",
+    "element",
+    "media",
+    "pointer",
+    "window",
+    // utils
+    "contains",
+    "extendClassOptions",
+    "matchesSelector",
+    "mergeObjects",
+    "Observer",
+    "Promise",
+
+    // ui components
+//    "main",
+    "menu",
+    "Page",
+    "Images"
+
+  ]
+}

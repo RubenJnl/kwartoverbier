@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #TYPOGRAPY-SETTINGS
+\*------------------------------------*/
+
+$font:  "times new roman", serif;
+$font-weight-bold: 700;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-light: 300;
+
+$font-header: Arial; //"canterbury";
+
+
+
+/* Coloring
+-------------------- */
+h1, .u-alpha,
+h2, .u-beta,
+h3, .u-gamma,
+h4,
+h5,
+h6 {
+  font-family: $font-header, "times new roman", serif;
+  color: get-color('header');
+}
+
+.o-stack--primary {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: get-color('secondary');
+  }
+}

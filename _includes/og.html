@@ -1,0 +1,7 @@
+<meta property="og:title" content="{% if page.title %}{% if page.title != 'Home' %}{{ page.title | escape }} - {% endif %}{% endif %}{{ site.title | escape }}{% if page.title == 'Home' %} - {{ site.subtitle }} {% endif %}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{site.permalink}}{{page.url}}" />
+<meta property="og:image" content="{{site.permalink}}{{page.ogImg}}" />
+{% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}" />{% endif %}
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:site_name" content="{{site.site_name}}" />

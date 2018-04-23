@@ -1,0 +1,14 @@
+/* Default link styling
+----------------------------- */
+
+a {
+  color: get-color('black');
+  text-decoration: underline;
+  transition: color .3s ease;
+
+  @include attention{
+    text-decoration: underline;
+    color: get-color('primary');
+    transition: color .3s ease;
+  }
+}

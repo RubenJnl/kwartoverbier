@@ -1,0 +1,25 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.title %}{% if page.title != 'Home' %}{{ page.title | escape }} - {% endif %}{% endif %}{{ site.title | escape }}{% if page.title == 'Home' %} - {{ site.subtitle }} {% endif %}</title>
+
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  {% include og.html %}
+  <link rel="stylesheet" href="{{ "/static/css/screen.css" | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.permalink }}">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/static/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/static/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/static/icons/manifest.json">
+  <link rel="mask-icon" href="/static/icons/safari-pinned-tab.svg" color="#a22012">
+  <link rel="shortcut icon" href="/static/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#feba01">
+  <meta name="msapplication-TileImage" content="/static/icons/mstile-144x144.png">
+  <meta name="theme-color" content="#feba01">
+
+
+  {% include external-scripts.html %}
+</head>

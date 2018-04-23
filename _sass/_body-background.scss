@@ -1,0 +1,19 @@
+body {
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: -5em;
+    left: 0;
+    z-index: -2;
+    background-image: url('/assets/images/background_mobile.jpg');
+    background-size: 100% auto;
+
+    @media screen and (min-width: get-breakpoint('m')) {
+      background-image: url('/assets/images/background.jpg');
+      background-size: cover;
+    }
+  }
+}

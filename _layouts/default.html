@@ -1,0 +1,43 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="nl">
+
+  {% include head.html %}
+
+  <body>
+
+  {% if page.title == 'Home' %}
+  <!-- FB -->
+  {% endif %}
+
+  <script>
+    // GA
+
+  </script>
+
+  <!-- <div id="skip-links" class="u-screenreader">
+    <ul>
+      <li><a href="#main-content">Spring naar inhoud</a></li>
+      <li><a href="#site-nav">Spring naar navigatie</a></li>
+      <li><a href="#footer">Spring naar contactgegevens</a></li>
+    </ul>
+  </div> -->
+
+    {% include header.html %}
+
+    <div id="main-content" class="main-content" data-module="Page">
+        {{ content }}
+      
+    </div>
+
+    {% include footer.html %}
+
+
+    {% include scripts.html %}
+
+  </body>
+
+</html>

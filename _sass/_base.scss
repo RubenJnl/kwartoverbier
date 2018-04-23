@@ -1,0 +1,15 @@
+/**
+ * Box-sizing best practice.
+ * @link https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+html {
+  box-sizing: border-box; /* 1 */
+  background-color: get-color('grey');
+  // min-height: 100%;
+}
+
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}

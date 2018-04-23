@@ -1,0 +1,50 @@
+/*------------------------------------*\
+    #ICONS
+\*------------------------------------*/
+
+
+/* Icon mixin
+----------------------------------------------- */
+@mixin icon() {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: vaerdichvolk !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Icon base
+----------------------------------------------- */
+
+.c-icon,
+[class^='c-icon--'],
+[class*=' c-icon--'] {
+  &::before,
+  &::after {
+    @include icon();
+  }
+}
+
+/* Icon list
+ ----------------------------------------------- */
+
+.c-icon--menu::before {
+  content: "\2756";
+}
+.c-icon--shield::before {
+  content: "\1f6e1";
+}
+
+.c-icon--logo-vaerdich-volk {
+  display: inline-block;
+  //height: 1em;
+  //fill: currentColor;
+  //width: 0.8505859375em;
+}

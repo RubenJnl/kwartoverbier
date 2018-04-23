@@ -1,0 +1,50 @@
+---
+layout: default
+---
+<section class="o-stack o-stack--background">
+
+  <div class="o-container">
+    {% if page.title == 'Kwartoverbier' %}
+    <h1 class="post-title">{{ site.description }}</h1>
+    {% else %}
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% endif %}
+    {{ page.content }}
+
+    {% for paragraph in page.pageContent %}
+      <p>{{paragraph}}</p>
+    {% endfor %}
+
+    {% if page.title != 'Agenda' %}
+    {% for img in page.img %}
+
+    <figure class="c-image">
+      {% if img.src %}
+      <a href="{{ img.src }}{{ img.ext }}" class="" title="{{ img.alt }}">
+      {% endif %}
+        <picture>
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source media="(min-width: 45em)" srcset="{{ img.src }}-m{{ img.ext }}">
+          <source media="(min-width: 60em)" srcset="{{ img.src }}-l{{ img.ext }}">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="{{ img.src }}-s{{ img.ext }}" alt="{{ img.alt }}">
+        </picture>
+      {% if img.src %}
+      </a>
+      {% endif %}
+    </figure>
+
+    {% endfor %}
+    {% endif %}
+
+
+  </div>
+
+
+  {% if page.title == 'Home' %}
+
+  {% include fb-feed.html %}
+
+  {% endif %}
+
+</section>

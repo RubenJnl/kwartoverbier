@@ -1,0 +1,147 @@
+/*------------------------------------*\
+    #LIST
+\*------------------------------------*/
+
+/**
+* The list-bare object simply removes any indents and bullet points from lists.
+*/
+
+@mixin list-bare {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.o-list--bare,
+%list-bare {
+  @include list-bare;
+  font-weight: normal;
+
+  //&::before {
+  //  display: none;
+  //}
+  //
+  //> li {
+  //  line-height: 1.25em;
+  //  padding: 0;
+  //
+  //  > * {
+  //
+  //    margin-left: 0 !important;
+  //  }
+  //}
+  //
+  //a::before {
+  //  display: none;
+  //}
+}
+
+/**
+* The list-icon object simply removes any indents and bullet points from lists.
+*/
+
+.o-list--icon {
+  @include list-bare;
+
+  li {
+
+    &::before {
+      @include icon();
+    }
+  }
+}
+
+.o-list--menu {
+
+  > li {
+    line-height: 1.5em;
+    padding: .25em;
+
+    > * {
+      margin-left: 1.5em;
+      position: relative;
+
+      &::before {
+        @include icon();
+        position: absolute;
+        left: -1.5em;
+        top: .15em;
+        content: "\2756";
+        margin-right: .25em;
+      }
+    }
+  }
+}
+
+.o-list--shield {
+
+  li {
+    line-height: 1.75em;
+
+    &::before {
+      content: "\1f6e1";
+      margin-right: .5em;
+      color: get-color('primary');
+    }
+  }
+}
+
+
+/* Definition List DL
+------------------------------ */
+dl,
+.o-dl {
+  margin-bottom: 1em;
+}
+
+.o-dl__item--strong {
+  font-weight: bold;
+}
+
+.o-dl--inline {
+  padding-left: 0;
+  overflow: hidden;
+
+
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  dt {
+    float: left;
+    margin: 0;
+
+    &::after {
+      content: '';
+      display: table;
+    }
+  }
+
+  dd {
+    overflow: hidden;
+    padding-left: .5em;
+
+    &.o-dl__item--keep {
+      float: left;
+    }
+  }
+
+
+  .u-screenreader + dd {
+    padding-left :0;
+
+    &.o-dl__item--keep {
+      padding-left: .5em;
+    }
+
+  }
+
+  .u-screenreader.o-dl__item--keep + dd {
+    padding-left: 0;
+
+    + .u-screenreader.o-dl__item--keep + .o-dl__item--keep {
+      padding-left: .5em;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+./node_modules
+deploy
+www
+*/**/.DS_STORE
+.idea
+.sass-cache
+node_modules

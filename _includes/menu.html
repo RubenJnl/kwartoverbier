@@ -1,0 +1,69 @@
+<!-- <a href="#site-nav" class="c-nav__menu-trigger">
+    <div class="c-nav__menu-close">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="c-nav__arrow"></div>
+</a>
+
+
+<nav id="site-nav" data-module="menu" data-conditions='media:{(max-width:768px)}'>
+
+     {% include logo-inline.html %}
+
+    <h2><span class="u-screenreader">Menu </span></h2>
+    <p class="c-nav__title u-beta">{{ site.title }}</p>
+
+    <div class="c-menu__items">
+        <ul class="o-list--icon o-list--menu">
+
+            {% if page.url == '/' %}
+                <li class="u-active">
+                    <span class="c-menu__item">Home</span>
+                </li>
+            {% else %}
+            <li>
+                <a href="/" class="c-menu__item">Home</a>
+            </li>
+            {% endif %}
+
+
+            {% assign pages = site.pages | sort: 'pId' %}
+            {% for my_page in pages %}
+            {% if my_page.title %}
+                {% if page.url == my_page.url %}
+                    <li class="u-active">
+                        {% if my_page.menu %}
+                        <span class="c-menu__item">{{ my_page.menu }}</span>
+                        {% else %}
+                        <span class="c-menu__item">{{ my_page.title }}</span>
+                        {% endif %}
+                        <!--{% if my_page.url contains 'wat-bieden-wij' %}-->
+                        <!--{% assign leden = site.onzeleden | sort: 'lId' %}-->
+                        <!--<ul class="o-list&#45;&#45;bare">-->
+                            <!--{% for l in leden %}-->
+                            <!--<li><a href="#{{l.title | slugify}}">{{l.title}}</a></li>-->
+                            <!--{% endfor %}-->
+                        <!--</ul>-->
+                        <!--{% endif %}-->
+
+                    </li>
+                {% else %}
+                    <li>
+                        {% if my_page.menu %}
+                        <a href="{{ my_page.url | prepend: site.baseurl }}/" class="c-menu__item">{{ my_page.menu }}</a>
+                        {% else %}
+                        <a href="{{ my_page.url | prepend: site.baseurl }}/" class="c-menu__item">{{ my_page.title }}</a>
+                        {% endif %}
+                    </li>
+                {% endif %}
+
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+     <div class="c-nav__arrow"></div>
+</nav>
+ -->

@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    #BREAKPOINTS-SETTINGS
+\*------------------------------------*/
+
+$breakpoints:(
+    s:  24em, /* 384px */
+    m:  48.07em, /* 769 */
+    l:  64em, /* 1024 */
+    xl: 75em,
+    xxl: 90em); /* */
+
+/**
+ * Z-index management
+ * @author Hugo Giraudel
+ * @link http://www.sitepoint.com/better-solution-managing-z-index-sass/
+*/
+
+@function get-breakpoint($name) {
+
+    $bp: map-get($breakpoints, $name);
+
+    @if not $bp {
+        @error 'No value found for `#{$name}`. Please make sure it is defined in `$breakpoints` map.';
+    }
+
+    @return $bp;
+
+}

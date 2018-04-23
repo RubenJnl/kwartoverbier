@@ -1,0 +1,68 @@
+#<ifModule mod_headers.c>
+	Header set Connection keep-alive
+#</ifModule>
+
+# 15768000 sec = 6 months
+Header set Strict-Transport-Security "max-age=15768000" env=HTTPS
+# Crossframe blocking
+Header always set X-Frame-Options "SAMEORIGIN"
+# cross site script blocking
+Header always set X-Xss-Protection "1; mode=block"
+# cross content options
+Header always set X-Content-Type-Options "nosniff"
+# only self created scripts
+#Header set Content–Security–Policy "default-src ‘none’; img-src ‘self’; font-src ‘self’; style-src ‘self’; media-src ‘self’"
+
+#Options +FollowSymlinks
+RewriteEngine On
+RewriteCond %{http_host} ^www.kwartoverbier.nl [NC]
+RewriteRule ^(.*)$ https://kwartoverbier.nl/$1 [L,R=301]
+
+#Options +FollowSymlinks
+RewriteEngine On
+RewriteCond %{http_host} ^www.kwartoverbier.nl [NC]
+RewriteRule ^(.*)$ https://kwartoverbier.nl/$1 [L,R=301]
+
+RewriteCond %{HTTPS} !=on
+# This checks to make sure the connection is not already HTTPS
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [QSA,R,L]
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(forum)($|/) - [L]
+RewriteRule ^([^/]+)/$ $1.html
+RewriteRule ^([^/]+)/([^/]+)/$ /$1/$2.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
+RewriteRule (.*)$ /$1/ [R=301,L]
+
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault A600
+  <FilesMatch \.(html|xhtml|xml|shtml)$>
+    ExpiresDefault A600
+  </FilesMatch>
+  <FilesMatch \.(phtml|php)$>
+    ExpiresDefault A1
+  </FilesMatch>
+  <FilesMatch \.css$>
+     ExpiresDefault A604800
+  </FilesMatch>
+  <FilesMatch \.js$>
+    ExpiresDefault A604800
+  </FilesMatch>
+  <FilesMatch \.(bmp|png|gif|jpe?g|ico)$>
+    ExpiresDefault A2592000
+  </FilesMatch>
+  <FilesMatch \.(eot|ttf|otf|svg)$>
+    ExpiresDefault A2592000
+  </FilesMatch>
+  <FilesMatch \.(swf|pdf|doc|rtf|xls|ppt)$>
+    ExpiresDefault A2592000
+  </FilesMatch>
+  <FilesMatch \.(flv|wmv|asf|asx|wma|wax|wmx|wm)$>
+    ExpiresDefault A2592000
+  </FilesMatch>
+</IfModule>
