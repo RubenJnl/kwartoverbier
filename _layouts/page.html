@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<section class="o-stack o-stack--background">
+<section class="o-stack">
 
   <div class="o-container">
     {% if page.title == 'Kwartoverbier' %}
@@ -15,7 +15,6 @@ layout: default
       <p>{{paragraph}}</p>
     {% endfor %}
 
-    {% if page.title != 'Agenda' %}
     {% for img in page.img %}
 
     <figure class="c-image">
@@ -35,7 +34,6 @@ layout: default
     </figure>
 
     {% endfor %}
-    {% endif %}
 
 
   </div>
@@ -43,7 +41,7 @@ layout: default
 
   {% if page.title == 'Home' %}
 
-  {% include fb-feed.html %}
+    {% include fb-feed.html %}
 
   {% endif %}
 

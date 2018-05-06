@@ -6,29 +6,24 @@
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 
-@import "reset";
+// @import "reset";
 @import "normalize";
 @import "colors";
 @import "base";
 
 @import "breakpoints";
 @import "respond";
+
+@import "root";
+
 @import "hide";
 @import "attention";
 @import "typography";
 @import "typographic-scale";
-@import "logo";
-@import "widths";
-@import "grids";
 @import "links";
 @import "header";
-@import "nav";
 @import "content-wrappers";
 @import "content";
-@import "leden";
 @import "icons";
-@import "lists";
-@import "images-gallery";
 @import "footer";
 @import "body-background";
-@import "modal";
