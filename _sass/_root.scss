@@ -1,10 +1,10 @@
 :root {
-  --backgroundGif: url(//localhost:4000/assets/images/fall-back-ground-mobile.gif);
+  --backgroundGif: url(/assets/images/fall-back-ground-mobile.gif);
 
 }
 
 :root {
   @include respond-min('m'){
-    --backgroundGif: url(//localhost:4000/assets/images/fall-back-ground-landscape.gif);
+    --backgroundGif: url(/assets/images/fall-back-ground-landscape.gif);
   }
 }
