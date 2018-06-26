@@ -34,22 +34,28 @@ p {
   margin-bottom: .75em;
 }
 
-h1,
-.u-alpha {
-  font-size: 2em;
+h1 {
+  font-size: 3em;
   line-height: 1.5em;
   margin-bottom: .25em;
 }
 
-h2,
-.u-beta {
-  font-size: 1.75em;
-  line-height: 1.25em;
-  margin-bottom: .25em;
+h2 {
+  font-size: 8em;
+  line-height: 1em;
+  text-align: center;
+  text-transform: uppercase;
+
+  &.yes {
+      color: var(--color-header);
+  }
+
+  &.no {
+      color: var(--color-primary);
+  }
 }
 
-h3,
-.u-gamma {
+h3 {
   font-size: 1.5em;
   line-height: 1em;
   margin-bottom: .15em;

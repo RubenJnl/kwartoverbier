@@ -12,12 +12,12 @@ subtitle: 16.15u is tijd voor bier
 email: hallo@kwartoverbier.nl
 author: Ruben Janssen
 author_email: hallo@rubenjanssen.nl
-description: "Is het al kwartoverbier?"
+description: "Is het al kwartoverbier?!"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://kwartoverbier.nl" # the base hostname & protocol for your site
 permalink: "https://kwartoverbier.nl" # the base hostname & protocol for your site
-include: [static,".htaccess"]
-exclude: ["*.xml","*.log","Gemfile", "*.json", "images", "deploy" ,"node_modules", "gulpfile.js", "autoprefixer.yml", "r.js", "amd-optimize-config.json", "README.MD"]
+exclude: ["*.xml","*.log","Gemfile", "package.json", "images", "deploy" ,"node_modules", "gulpfile.js", "autoprefixer.yml", "r.js", "amd-optimize-config.json", "README.MD"]
+include: [static,beer/tags.json,".htaccess"]
 version: 2.0
 
 sass:
@@ -55,10 +55,10 @@ destination: ./www
 
 
 # Defaults
-#defaults:
-#  - scope:
-#      path: ""
-#      type: "products"
+# defaults:
+  # - scope:
+      # path: "beer"
+      # type: ""
 #    values:
 #      layout: product
 
@@ -67,10 +67,6 @@ collections:
   pages:
     output: true
     permalink: /:title
-  evenementen:
-    output: false
-  onzeleden:
-    output: false
 
 
 # Build settings

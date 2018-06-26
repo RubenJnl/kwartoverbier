@@ -11,6 +11,16 @@ $colors: (
         'grey':       #333333
 );
 
+:root {
+    --color-header:    #efefef;
+    --color-primary:   #a22012;
+    --color-secondary:  #feba01;
+    --color-white:      #ffffff;
+    --color-black:      #000000;
+    --color-background: #fff5d9;
+    --color-grey:       #333333
+}
+
 // Helper
 
 @function get-color($name) {

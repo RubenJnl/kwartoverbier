@@ -12,14 +12,10 @@ Kwartoverbier.nl
 * HTML
 * Javascript
 * [SASS](http://sass-lang.com/)
-
-### Libraries
-* [Conditioner](http://conditionerjs.com)
-* [RequireJS](http://requirejs.org)
+* CSS 
 
 ### Conventions
-* [BEM](https://css-tricks.com/bem-101/)
-* [Content First]
+* [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/)
 
 
 Installation

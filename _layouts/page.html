@@ -3,11 +3,9 @@ layout: default
 ---
 <section class="o-stack">
 
-  <div class="o-container">
-    {% if page.title == 'Kwartoverbier' %}
+  <div class="o-container o-container--full">
+    {% if page.title != 'Kwartoverbier' %}
     <h1 class="post-title">{{ site.description }}</h1>
-    {% else %}
-    <h1 class="post-title">{{ page.title }}</h1>
     {% endif %}
     {{ page.content }}
 
@@ -37,12 +35,5 @@ layout: default
 
 
   </div>
-
-
-  {% if page.title == 'Home' %}
-
-    {% include fb-feed.html %}
-
-  {% endif %}
 
 </section>

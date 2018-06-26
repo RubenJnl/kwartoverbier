@@ -9,8 +9,8 @@ layout: compress
 
   <body>
 
-  {% if page.title == 'Home' %}
-  <!-- FB -->
+  {% if page.title == 'Kwartoverbier' %}
+      <!-- {% include social.html %} -->
   {% endif %}
 
   <script>
@@ -28,13 +28,20 @@ layout: compress
 
     {% include header.html %}
 
-    <div id="main-content" class="main-content" data-module="Page">
+    <div id="main-content" class="main-content">
+        {% if page.title == 'Kwartoverbier' %}
+            {% include ja-nee.html %}
+        {% endif %}
         {{ content }}
-      
     </div>
 
-    {% include footer.html %}
+    {% if page.title == 'Kwartoverbier' %}
+        <section class="o-stack">
+          <!-- {% include fb-feed.html %} -->
+        </section>
+    {% endif %}
 
+    {% include footer.html %}
 
     {% include scripts.html %}
 
