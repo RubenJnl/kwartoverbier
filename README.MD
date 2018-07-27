@@ -12,7 +12,7 @@ Kwartoverbier.nl
 * HTML
 * Javascript
 * [SASS](http://sass-lang.com/)
-* CSS 
+* CSS
 
 ### Conventions
 * [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/)
@@ -56,3 +56,11 @@ Fill dev folder with responsive images
 
 ## gulp deploy
 Deploy to deploy folder to upload via FTP, this also encodes fonts base64, minifies all js & html
+
+
+
+## Extension
+Kwartoverbier chrome extension.
+
+### docs
+https://developer.chrome.com/extensions/getstarted
