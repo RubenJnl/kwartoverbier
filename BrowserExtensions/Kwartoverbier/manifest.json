@@ -1,0 +1,29 @@
+{
+  "name": "Is het tijd voor bier? Kwartoverbier!",
+  "short_name" : "Kwartoverbier",
+  "version": "0.5",
+  "description": "Check of het tijd is voor bier met één druk op de knop!",
+  "manifest_version": 2,
+  "background": {
+    "page" : "background.html",
+    "persistent": true
+  },
+  "content_scripts" : [{
+      "matches": ["<all_urls>"],
+      "js": ["contentscript.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+  }],
+  "browser_action": {
+   "default_icon": {
+     "16": "images/beer_32.png"
+   }
+ },
+  "icons": {
+    "16": "images/beer_32.png",
+    "32": "images/beer_32.png",
+    "48": "images/beer_96.png",
+    "128": "images/beer_128.png"
+  },
+  "permissions": ["<all_urls>", "tabs"]
+}

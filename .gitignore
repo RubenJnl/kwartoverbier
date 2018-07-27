@@ -2,7 +2,10 @@
 deploy
 www
 assets/**/*.*
-*/**/.DS_STORE
+**/.DS_STORE
+**/*.crx
+**/*.pem
+BrowserExtensions/**/*.zip
 .idea
 .sass-cache
 node_modules
