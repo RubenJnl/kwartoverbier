@@ -8,10 +8,10 @@
   openPage = function() {
 
       chrome.storage.sync.get(['popup'], function(data) {
-          var popupUrl = 'popup.html?url=' + url.nieuwestijl
+          var popupUrl = url.new
 
           if (typeof data.style != 'undefined'){
-              popupUrl = 'popup.html?url=' + url[data.style]
+              popupUrl = url[data.style]
           }
           chrome.tabs.create({url: popupUrl});
       });
@@ -22,8 +22,8 @@
       chrome.storage.sync.get(['style', 'popup'], function(data) {
 
           if (typeof data.popup != 'undefined' && JSON.parse(data.popup)) {
-
-              var popupUrl = 'popup.html?url=' + url.nieuwestijl
+console.log(data, data.style)
+              var popupUrl = 'popup.html?url=' + url.new
 
               if (typeof data.style != 'undefined'){
 

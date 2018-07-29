@@ -16,7 +16,7 @@ function save() {
 
     chrome.storage.sync.set({
         popup: popup,
-        style: style,
+        style: style
     }, function() {
         // Update status to let user know options were saved.
         var status = document.getElementById('status');
@@ -29,7 +29,7 @@ function save() {
 
 function load(){
     chrome.storage.sync.get(['popup'], function(data){
-      if(JSON.parse(data.popup)){
+      if(typeof data.popup != 'undefined' && JSON.parse(data.popup)){
          popoverEl.checked = true;
          windowEl.removeAttribute('checked');
      } else {
@@ -39,8 +39,7 @@ function load(){
     });
 
     chrome.storage.sync.get(['style'], function(data){
-        console.log(data)
-      if(data.style == 'old'){
+      if(typeof data.style != 'undefined' && data.style == 'old'){
          styleOldEl.checked = true;
          // windowEl.removeAttribute('checked');
      } else {
