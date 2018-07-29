@@ -95,7 +95,7 @@ kwartoverbier = {
         // console.log(tags.length);
         var rand = Math.floor(Math.random() * tags.length);
         // console.log(rand)
-        // console.log(tags[rand]);
+        console.log(tags[rand]);
         return tags[rand];
     },
     getDateTime: function(){
@@ -103,7 +103,7 @@ kwartoverbier = {
         var obj = {};
         obj.day = dateTimeStamp.getDay();
 
-        if (dateTimeStamp.getHours() >= 16 && dateTimeStamp.getMinutes() >= 15){
+        if ((dateTimeStamp.getHours() == 16 && dateTimeStamp.getMinutes() >= 15) || dateTimeStamp.getHours() > 16){
             obj.beertime = true
         }
         return obj

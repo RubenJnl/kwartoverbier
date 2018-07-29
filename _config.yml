@@ -16,8 +16,8 @@ description: "Is het al kwartoverbier?!"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://kwartoverbier.nl" # the base hostname & protocol for your site
 permalink: "https://kwartoverbier.nl" # the base hostname & protocol for your site
-exclude: ["*.xml","*.log","Gemfile", "package.json", "images", "deploy" ,"node_modules", "gulpfile.js", "autoprefixer.yml", "r.js", "amd-optimize-config.json", "README.MD"]
-include: [static,beer/tags.json,".htaccess"]
+exclude: ["*.xml","*.log","Gemfile", "package.json", "images", "deploy" ,"node_modules", "gulpfile.js", "autoprefixer.yml", "r.js", "amd-optimize-config.json", "README.MD", "BrowserExtensions"]
+include: [static,beer/tags.json,".htaccess",]
 version: 2.0
 
 sass:

@@ -1,22 +1,22 @@
 {
     "tags" : {
         "work": [
-            "office-bored",
+            "office+bored",
             "office",
             "boring",
             "bored",
-            "stressed",
-            "deadline"
+            "work"
         ],
         "monday": [
-            "monday",
-            "blue-monday",
-            "bored",
-            "sleep-work"
+            "blue+monday",
+            "bored+work",
+            "sleep+work"
         ],
         "beer": [
-            "beer",
-            "beer-bubbling"
+            "beer+drink",
+            "beer+bottle",
+            "beer-bubbling",
+            "beer+yes"
         ]
     }
 }

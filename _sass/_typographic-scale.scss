@@ -35,16 +35,34 @@ p {
 }
 
 h1 {
-  font-size: 3em;
-  line-height: 1.5em;
+  font-size: 1.5em;
+  line-height: 1.25em;
   margin-bottom: .25em;
+  @include respond-min('s'){
+      font-size: 2em
+  }
+  @include respond-min('m'){
+      font-size: 2.5em
+  }
+  @include respond-min('l'){
+      font-size: 3em
+  }
 }
 
 h2 {
-  font-size: 8em;
+  font-size: 3em;
   line-height: 1em;
   text-align: center;
   text-transform: uppercase;
+  @include respond-min('s'){
+      font-size: 4em
+  }
+  @include respond-min('m'){
+      font-size: 6em
+  }
+  @include respond-min('l'){
+      font-size: 8em
+  }
 
   &.yes {
       color: var(--color-header);
