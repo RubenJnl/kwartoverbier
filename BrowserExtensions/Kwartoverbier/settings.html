@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Kwartoberbier opties</title></head>
+    <link rel="stylesheet" href="style.css" />
+<body>
+    <div  class="settings-body">
+        <div class=field>
+            <fieldset>
+                <legend>Open Kwartoverbier in:</label>
+                <div>
+                    <input type="radio" value="false" name="type" id="newwindow"> <label for="newwindow">een nieuw venster</label>
+                </div>
+                <div>
+                    <input type="radio" value="true" name="type" id="popover"> <label for="popover">in de popover</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Kwartoverbier in:</label>
+                <div>
+                    <input type="radio" value="new" name="style" id="new"> <label for="new">nieuwe stijl</label>
+                </div>
+                <div>
+                    <input type="radio" value="old" name="style" id="old"> <label for="old">oude stijl</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="settings-status" id="status"></div>
+        <button id="save">Opslaan</button>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>
