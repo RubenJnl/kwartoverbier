@@ -1,7 +1,7 @@
 {
   "name": "Is het tijd voor bier?",
   "short_name" : "Kwartoverbier",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Wil jij snel weten of het tijd is voor de vrijdagmiddag borrel? Installeer dan nu deze #Kwartoverbier extension.",
   "manifest_version": 2,
   "background": {

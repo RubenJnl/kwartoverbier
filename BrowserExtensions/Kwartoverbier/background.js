@@ -7,11 +7,11 @@
 
   openPage = function() {
 
-      chrome.storage.sync.get(['popup'], function(data) {
-          var popupUrl = url.new
+      chrome.storage.sync.get(['obj'], function(data) {
+          var popupUrl = url.old;
 
-          if (typeof data.style != 'undefined'){
-              popupUrl = url[data.style]
+          if (typeof data.obj.style != 'undefined'){
+              popupUrl = url[data.obj.style]
           }
           chrome.tabs.create({url: popupUrl});
       });
@@ -19,15 +19,15 @@
   },
 
   checkOptions = function() {
-      chrome.storage.sync.get(['style', 'popup'], function(data) {
+      chrome.storage.sync.get(['obj'], function(data) {
 
-          if (typeof data.popup != 'undefined' && JSON.parse(data.popup)) {
-console.log(data, data.style)
-              var popupUrl = 'popup.html?url=' + url.new
+          if (typeof data.obj.popup != 'undefined' && JSON.parse(data.obj.popup)) {
 
-              if (typeof data.style != 'undefined'){
+              var popupUrl = 'popup.html?url=' + url.old
 
-                  popupUrl = 'popup.html?url=' + url[data.style]
+              if (typeof data.obj.style != 'undefined'){
+
+                  popupUrl = 'popup.html?url=' + url[data.obj.style]
               }
 
               chrome.browserAction.setPopup({popup: popupUrl});

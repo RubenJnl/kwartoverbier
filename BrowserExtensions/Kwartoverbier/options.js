@@ -15,8 +15,10 @@ function save() {
     }
 
     chrome.storage.sync.set({
-        popup: popup,
-        style: style
+        obj: {
+            popup: popup,
+            style: style
+        }
     }, function() {
         // Update status to let user know options were saved.
         var status = document.getElementById('status');
@@ -24,22 +26,21 @@ function save() {
         setTimeout(function() {
           status.textContent = '';
     }, 5000);
+
   });
 }
 
 function load(){
-    chrome.storage.sync.get(['popup'], function(data){
-      if(typeof data.popup != 'undefined' && JSON.parse(data.popup)){
+    chrome.storage.sync.get(['obj'], function(data){
+        
+      if(typeof data.obj.popup != 'undefined' && JSON.parse(data.obj.popup)){
          popoverEl.checked = true;
          windowEl.removeAttribute('checked');
      } else {
          windowEl.checked = true;
          popoverEl.removeAttribute('checked');
      }
-    });
-
-    chrome.storage.sync.get(['style'], function(data){
-      if(typeof data.style != 'undefined' && data.style == 'old'){
+      if(typeof data.obj.style != 'undefined' && data.obj.style == 'old'){
          styleOldEl.checked = true;
          // windowEl.removeAttribute('checked');
      } else {
