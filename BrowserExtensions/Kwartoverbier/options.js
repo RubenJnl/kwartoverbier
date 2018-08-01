@@ -13,6 +13,7 @@ function save() {
     if(styleOldEl.checked){
         style = 'old'
     }
+    chrome.storage.sync.clear();
 
     chrome.storage.sync.set({
         obj: {
@@ -32,7 +33,7 @@ function save() {
 
 function load(){
     chrome.storage.sync.get(['obj'], function(data){
-        
+
       if(typeof data.obj.popup != 'undefined' && JSON.parse(data.obj.popup)){
          popoverEl.checked = true;
          windowEl.removeAttribute('checked');
