@@ -22,17 +22,25 @@
         iHour = dNow.getHours(),
         iMinute = dNow.getMinutes();
 
-        if (iHour == 16 && iMinute == 16 ) {
+        if (iHour == 16 && iMinute == 15 ) {
             showNotification();
             notificationSend = true;
-      	} if (iHour == 16 && iMinute > 14 && iMinute < 15){
-            setTimeout(function(){
-                checkNotification();
-            }, 100);
-        } else {
+      	} else if (iHour == 16 && iMinute <= 14){
             setTimeout(function(){
                 checkNotification();
             }, 20000);
+        } else if (iHour == 16 && iMinute > 14 && iMinute < 15){
+            setTimeout(function(){
+                checkNotification();
+            }, 200);
+        } else if (iHour >= 13 && iHour <= 16 ){
+          setTimeout(function(){
+              checkNotification();
+          }, 300000); // 10m = 5*60*1000
+        } else {
+            setTimeout(function(){
+                checkNotification();
+            }, 3600000); // 1h = 60*60*1000
         }
     }
 
@@ -65,9 +73,9 @@
       chrome.storage.sync.get(['obj'], function(data) {
           var popupUrl = url.old;
 
-          if (typeof data.obj != 'undefined' && typeof data.obj.style != 'undefined'){
-              popupUrl = url[data.obj.style]
-          }
+          // if (typeof data.obj != 'undefined' && typeof data.obj.style != 'undefined'){
+          //     popupUrl = url[data.obj.style]
+          // }
           chrome.tabs.create({url: popupUrl});
       });
 

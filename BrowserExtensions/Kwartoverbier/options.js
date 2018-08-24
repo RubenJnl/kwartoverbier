@@ -1,26 +1,31 @@
 var popoverEl = document.getElementById('popover'),
     windowEl = document.getElementById('newwindow'),
-    styleNewEl = document.getElementById('new'),
-    styleOldEl = document.getElementById('old'),
+    // styleNewEl = document.getElementById('new'),
+    // styleOldEl = document.getElementById('old'),
     saveBtn = document.getElementById('save'),
     alertFalseEl = document.getElementById('noAlert'),
     alertTrueEl = document.getElementById('alert');
 
 function save() {
   var popup = 'false',
-    style = 'new';
+    style = 'new',
+    notification = 'false';
     if (popoverEl.checked){
         popup = 'true';
     }
-    if(styleOldEl.checked){
-        style = 'old'
+    // if(styleOldEl.checked){
+    //     style = 'old'
+    // }
+    if (alertTrueEl){
+      notification = 'true';
     }
     chrome.storage.sync.clear();
 
     chrome.storage.sync.set({
         obj: {
             popup: popup,
-            style: style
+            style: style,
+            notification: notification
         }
     }, function() {
         // Update status to let user know options were saved.
@@ -43,18 +48,19 @@ function load(){
          windowEl.checked = true;
          popoverEl.removeAttribute('checked');
      }
-     if(typeof data.obj != 'undefined' && typeof data.obj.style != 'undefined' && data.obj.style == 'old'){
-         styleOldEl.checked = true;
+     // if(typeof data.obj != 'undefined' && typeof data.obj.style != 'undefined' && data.obj.style == 'old'){
+         // styleOldEl.checked = true;
          // windowEl.removeAttribute('checked');
-     } else {
-         styleNewEl.checked = true;
-         // styleOldEl.removeAttribute('checked');
-     }
-
+     // } else {
+     //     styleNewEl.checked = true;
+     //     // styleOldEl.removeAttribute('checked');
+     // }
      if(typeof data.obj != 'undefined' && typeof data.obj.notification != 'undefined' && data.obj.notification == 'true'){
          alertTrueEl.checked = true;
+         alertFalseEl.removeAttribute('checked');
      } else {
          alertFalseEl.checked = true;
+         alertTrueEl.removeAttribute('checked');
      }
     });
 }
