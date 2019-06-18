@@ -11,7 +11,7 @@ site_name: "Kwartoverbier.nl"
 subtitle: 16.15u is tijd voor bier
 email: hallo@kwartoverbier.nl
 author: Ruben Janssen
-author_email: hallo@rubenjanssen.nl
+author_email: hallo@kwartoverbier.nl
 description: "Is het al kwartoverbier?!"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://kwartoverbier.nl" # the base hostname & protocol for your site
@@ -71,3 +71,5 @@ collections:
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM

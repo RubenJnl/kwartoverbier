@@ -17,8 +17,8 @@ function updateProgress (oEvent) {
 }
 
 function transferComplete(evt) {
-  // console.log("The transfer is complete.");
-  // console.log(evt.target.response);
+  console.log("The transfer is complete.");
+  console.log(evt.target.response);
   kwartoverbier.handleResponseData(evt.target.response);
 }
 
@@ -33,7 +33,7 @@ var api = 'qH86QPaygCDGtGgOwtwqgmousRawrRpV',
 kwartoverbier = {
     options: {
         tagsUrl : '/beer/tags.json',
-		url: 'https://api.giphy.com/v1/gifs/random?api_key='+api+'&rating=G'
+		url: 'https://api.giphy.com/v1/gifs/search?api_key='+api+'&rating=G'
     },
     init: function(){
         this.getTag();
@@ -51,13 +51,12 @@ kwartoverbier = {
     },
     getGif: function(){
             // console.log(this.tag);
-            req.open('GET', this.options.url);
+            req.open('GET', (this.options.url + '&q=' + this.tag + '&limit=25'));
             req.send();
     },
     getTag: function(){
         var context = this;
         var tagReq = new XMLHttpRequest();
-
         tagReq.open('GET', this.options.tagsUrl);
         tagReq.send();
         tagReq.addEventListener("progress", updateProgress);
@@ -111,10 +110,13 @@ kwartoverbier = {
     handleResponseData: function(resp){
 
         var obj = JSON.parse(resp);
-        if (obj.data && obj.data.type === 'gif'){
-            // console.log('gif')
-            req.open('GET', obj.data.image_original_url);
-            document.documentElement.style.setProperty('--backgroundGif', 'url("' + obj.data.image_original_url + '")');
+        // console.log(obj.data);
+        var rand = Math.floor(Math.random() * obj.data.length);
+        // console.log(rand, obj.data[rand].images);
+        if (obj.data[rand] && obj.data[rand].type === 'gif'){
+            // console.log('gif', obj.data[rand].images.original.url);
+            req.open('GET', obj.data[rand].images.original.url);
+            document.documentElement.style.setProperty('--backgroundGif', 'url("' + obj.data[rand].images.original.url + '")');
         }
 
     }

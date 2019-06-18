@@ -15,7 +15,7 @@
         "beer": [
             "beer+drink",
             "beer+bottle",
-            "beer-bubbling",
+            "beer+bubbling",
             "beer+yes"
         ]
     }

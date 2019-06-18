@@ -8,7 +8,7 @@ var popoverEl = document.getElementById('popover'),
 
 function save() {
   var popup = 'false',
-    style = 'new',
+    style = 'old',
     notification = 'false';
     if (popoverEl.checked){
         popup = 'true';
@@ -36,6 +36,7 @@ function save() {
     }, 5000);
 
   });
+  load()
 }
 
 function load(){
