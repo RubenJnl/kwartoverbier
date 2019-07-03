@@ -18,7 +18,7 @@ function updateProgress (oEvent) {
 
 function transferComplete(evt) {
   console.log("The transfer is complete.");
-  console.log(evt.target.response);
+  // console.log(evt.target.response);
   kwartoverbier.handleResponseData(evt.target.response);
 }
 
@@ -29,6 +29,7 @@ function transferFailed(evt) {
 function transferCanceled(evt) {
   console.log("The transfer has been canceled by the user.");
 }
+
 var api = 'qH86QPaygCDGtGgOwtwqgmousRawrRpV',
 kwartoverbier = {
     options: {
@@ -51,7 +52,7 @@ kwartoverbier = {
     },
     getGif: function(){
             // console.log(this.tag);
-            req.open('GET', (this.options.url + '&q=' + this.tag + '&limit=25'));
+            req.open('GET', (this.options.url + '&q=' + this.tag + '&limit=5'));
             req.send();
     },
     getTag: function(){
@@ -94,7 +95,7 @@ kwartoverbier = {
         // console.log(tags.length);
         var rand = Math.floor(Math.random() * tags.length);
         // console.log(rand)
-        console.log(tags[rand]);
+        // console.log(tags[rand]);
         return tags[rand];
     },
     getDateTime: function(){
@@ -112,13 +113,12 @@ kwartoverbier = {
         var obj = JSON.parse(resp);
         // console.log(obj.data);
         var rand = Math.floor(Math.random() * obj.data.length);
-        // console.log(rand, obj.data[rand].images);
+        console.log(rand, obj.data[rand].images);
         if (obj.data[rand] && obj.data[rand].type === 'gif'){
             // console.log('gif', obj.data[rand].images.original.url);
             req.open('GET', obj.data[rand].images.original.url);
             document.documentElement.style.setProperty('--backgroundGif', 'url("' + obj.data[rand].images.original.url + '")');
         }
-
     }
 }
 

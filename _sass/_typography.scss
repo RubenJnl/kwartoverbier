@@ -2,13 +2,13 @@
     #TYPOGRAPY-SETTINGS
 \*------------------------------------*/
 
-$font:  "times new roman", serif;
+$font:  Arial, sans-serif;
 $font-weight-bold: 700;
 $font-weight-medium: 500;
 $font-weight-regular: 400;
 $font-weight-light: 300;
 
-$font-header: Arial; //"canterbury";
+$font-header: Arial;
 
 
 
@@ -20,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-header, "times new roman", serif;
+  font-family: $font;
   color: get-color('header');
 }
 

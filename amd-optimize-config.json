@@ -2,7 +2,7 @@
   "baseUrl": "deploy/static/js",
   "name": "main",
   "out": "deploy/static/js/main-build.js",
-  "insertRequire": [ "main" ],
+  "insertRequire": [ "main", "adder" ],
   // "optimize": "uglify2",
   "preserveLicenseComments": true,
   "paths": {
@@ -14,8 +14,8 @@
   },
   "exclude": [],
   "include": [
-
     "main",
+    "adder",
 
   ]
 }

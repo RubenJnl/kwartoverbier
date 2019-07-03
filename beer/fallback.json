@@ -7,6 +7,11 @@
     ],
     "beer": [
         "/assets/images/fall-back-ground.gif",
-        "https://giphy.com/gifs/beer-tequila-desperados-xTiTnqZw2oni0yN25G"
+        "https://media3.giphy.com/media/xTiTnqZw2oni0yN25G/giphy.gif",
+        "https://media3.giphy.com/media/8yFGAh0Zzj71K/giphy.gif"
+    ],
+    "beerfallbackOriginalUrl" : [
+      "/",
+      "https://giphy.com/gifs/beer-tequila-desperados-xTiTnqZw2oni0yN25G"
     ]
 }

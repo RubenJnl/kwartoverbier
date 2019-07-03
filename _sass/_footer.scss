@@ -1,6 +1,9 @@
 /* Footer */
-footer {
-  visibility: hidden;
+.c-footer {
+  background-color: var(--color-background);
+  transform: translateY(100%);
+
+  // visibility: hidden;
   // background-color: get-color('primary');
   // color: get-color('secondary');
   //
