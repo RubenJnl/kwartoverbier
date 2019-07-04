@@ -1,0 +1,13 @@
+.o-flex {
+  display: flex;
+  flex-direction: row;
+
+  &--between {
+    justify-content: space-between;
+  }
+}
+
+
+.o-flex__item {
+  align-self: flex-start;
+}
