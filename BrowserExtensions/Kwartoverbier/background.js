@@ -1,103 +1,102 @@
-(function() {
+(() => {
   'use strict';
   var url = {
-      "old" : 'https://kwartoverbier.nl/#plugin',
-      "new" : 'https://new.kwartoverbier.nl/'
+    "old": 'https://kwartoverbier.nl/#plugin',
+    "new": 'https://new.kwartoverbier.nl/'
   },
-  notification = true,
-  notificationSend = false,
-  NotificationOptions = {
+    hourMessage = 16,
+    minuteMessage = 15,
+    notification = true,
+    notificationSend = false,
+    notificationTime = new Date(),
+    currentTimer = false,
+    NotificationOptions = {
       type: 'basic',
       iconUrl: '/images/notification_icon.png',
       title: 'Het is #Kwartoverbier! 🍻',
       message: 'Cheers!',
-      eventTime: Date.now(),
+      eventTime: Date.now()
+    },
 
-  },
+    toggleIdle = (state) => {
+      // console.log('from idle', state);
+      if (state == 'active'){
+        checkNotification()
+      } else if (currentTimer) {
+        clearTimeout(currentTimer)
+      }
+    },
 
-  checkNotification = function() {
+    checkNotification = () => {
+      // console.log(currentTimer);
+      if (currentTimer) {
+        clearTimeout(currentTimer)
+      }
+      notificationTime.setHours(hourMessage)
+      notificationTime.setMinutes(minuteMessage)
+      notificationTime.setSeconds(0)
+      var time = notificationTime
+      var currentTime = new Date().getTime();
+      // console.log(currentTime, time, time-currentTime);
+      if (currentTime > time) {
+        notificationTime.setDate(notificationTime.getDate() + 1)
+        showNotification()
+      } else {
+        
+      }
+      var timeout = time-currentTime > 3600000 ? 60000 : time-currentTime
+      currentTimer = setTimeout(checkNotification, timeout);
+    },
 
-    if (notificationSend == false){
-        var dNow = new Date(),
-        iHour = dNow.getHours(),
-        iMinute = dNow.getMinutes();
-
-        if (iHour == 16 && iMinute == 15 ) {
-            showNotification();
-            notificationSend = true;
-      	} else if (iHour == 16 && iMinute <= 14){
-            setTimeout(function(){
-                checkNotification();
-            }, 20000);
-        } else if (iHour == 16 && iMinute > 14 && iMinute < 15){
-            setTimeout(function(){
-                checkNotification();
-            }, 200);
-        } else if (iHour >= 13 && iHour <= 16 ){
-          setTimeout(function(){
-              checkNotification();
-          }, 300000); // 10m = 5*60*1000
-        } else {
-            setTimeout(function(){
-                checkNotification();
-            }, 3600000); // 1h = 60*60*1000
-        }
-    }
-
-
-
-  },
-
-  showNotification = function(){
-      chrome.notifications.create('1615alert', NotificationOptions, function(){
-          setTimeout(function(){
-              clearNotification();
-          }, 60000);
+    showNotification = () => {
+      notificationSend = true
+      chrome.notifications.create('1615alert', NotificationOptions, function () {
+        setTimeout(function () {
+          //   clearNotification();
+          checkNotification()
+          notificationSend = false;
+        }, 60000);
       });
-      chrome.notifications.onClicked.addListener(function(id) {
-          openPage();
-          clearNotification();
-      })
-  },
+      chrome.notifications.onClicked.addListener(function (id) {
+        openPage();
+        clearNotification();
+      });
+    },
 
-  clearNotification = function(){
+    // clearNotification = () => {
 
-    chrome.notifications.clear('1615alert', function(){
-        notificationSend = false;
-    });
+    //   chrome.notifications.clear('1615alert', function () {
+    //     // notificationSend = false;
+    //   });
 
-  },
+    // },
 
-  openPage = function() {
+    openPage = () => {
 
-      chrome.storage.sync.get(['obj'], function(data) {
-          var popupUrl = url.old;
+      chrome.storage.sync.get(['obj'], function (data) {
+        var popupUrl = url.old;
 
-          // if (typeof data.obj != 'undefined' && typeof data.obj.style != 'undefined'){
-          //     popupUrl = url[data.obj.style]
-          // }
-          chrome.tabs.create({url: popupUrl});
+        chrome.tabs.create({ url: popupUrl });
       });
 
-  },
+    },
 
-  checkOptionsClick = function() {
+    checkOptionsClick = () => {
 
-      chrome.storage.sync.get(['obj'], function(data) {
+      chrome.storage.sync.get(['obj'], (data) =>  {
 
-
-        if (typeof data.obj != 'undefined' && typeof data.obj.popup != 'undefined' ){
+        if (typeof data.obj != 'undefined' && typeof data.obj.popup != 'undefined') {
 
           if (JSON.parse(data.obj.popup)) {
 
             var popupUrl = 'popup.html?url=' + url.old
 
-            if (typeof data.obj.style != 'undefined'){
+            if (typeof data.obj.style != 'undefined') {
 
-                popupUrl = 'popup.html?url=' + url[data.obj.style]
+              popupUrl = 'popup.html?url=' + url[data.obj.style]
             }
 
-            chrome.browserAction.setPopup({popup: popupUrl});
+            chrome.browserAction.setPopup({ popup: popupUrl });
           } else {
             openPage();
           }
@@ -105,24 +104,28 @@
           openPage();
         }
       });
-  },
-  checkOptions = function(){
+    },
+    checkOptions = () => {
 
-      chrome.storage.sync.get(['obj'], function(data) {
-          if (typeof data.obj != 'undefined' && typeof data.obj.notification != 'undefined'){
-              notification = data.obj.notification;
-          }
+      chrome.storage.sync.get(['obj'], (data) => {
+        if (typeof data.obj != 'undefined' && typeof data.obj.notification != 'undefined') {
+          notification = data.obj.notification;
+        }
       });
-  };
+    };
 
-  chrome.browserAction.onClicked.addListener(function(tab) {
-      checkOptionsClick()
+  chrome.browserAction.onClicked.addListener((tab) => {
+    checkOptionsClick()
   });
 
   checkOptions();
 
-  if (notification){
+  if (notification) {
     checkNotification()
+    chrome.idle.onStateChanged.addListener((state) => {
+        toggleIdle(state)
+      }
+    )
   }
 
 
